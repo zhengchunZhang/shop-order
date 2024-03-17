@@ -12,6 +12,8 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class OrderServiceImpl implements IOrderService {
@@ -25,11 +27,16 @@ public class OrderServiceImpl implements IOrderService {
     @Autowired
     private RestTemplate restTemplate;
 
+    int i = 0;
     @Override
     public Order createOrder(Long productId, Long userId) {
         log.info("接收到{}号商品的下单请求,接下来调⽤商品微服务查询此商品信息",
                 productId);
-        ServiceInstance serviceInstance = discoveryClient.getInstances("product-service").get(0);
+        i++;
+        List<ServiceInstance> instances = discoveryClient.getInstances("product-service");
+
+        int index = i%instances.size();
+        ServiceInstance serviceInstance = instances.get(index);
         String host = serviceInstance.getHost();
         int port = serviceInstance.getPort();
         //远程调⽤商品微服务,查询商品信息
