@@ -35,6 +35,10 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <dependency>
             <groupId>cn.wolfcode</groupId>
             <artifactId>shop-product-api</artifactId>
             <version>1.0.0</version>
