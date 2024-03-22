@@ -10,6 +10,7 @@
         <module>shop-product-server</module>
         <module>shop-order-api</module>
         <module>shop-order-server</module>
+        <module>api-gateway</module>
     </modules>
     <packaging>pom</packaging>
     <parent>
