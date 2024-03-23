@@ -24,3 +24,4 @@ spring:
             - Path=/order-serv/**
           filters:
             - StripPrefix=1
+            - Time= true,1,hello
