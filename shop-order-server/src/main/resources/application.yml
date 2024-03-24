@@ -7,6 +7,9 @@ server:
 
 
 spring:
+  zipkin:
+    base-url: http://127.0.0.1:9411/ #zipkin server的请求地址
+    discoveryClientEnabled: false #让nacos把它当成⼀个URL，⽽不要当做服务名
   application:
     name: order-service
   datasource:
